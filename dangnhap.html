@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Dang nhap</title>
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            function dangnhap() {
+                var input = document.getElementsByTagName("input");
+                for (var i = 0; i < input.length; i++) {
+                    if (input[i].value== "") {
+                        document.getElementById("thongbao").innerHTML ="Bạn chưa nhập đủ thông tin!";
+                        return;
+                    }
+                }
+                var thamso = "username="+input[0].value+"&password="+input[1].value;
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.open("get", "../jsp/dangnhap.jsp?"+thamso, false);
+                xmlhttp.send();
+                var thongbao = xmlhttp.responseText.trim();
+                if (thongbao == "true") {
+                   xmlhttp.open("get","quanly.html", false);
+                   xmlhttp.send();
+                   document.write(xmlhttp.responseText);
+                } else {
+                    thongbao = "Đăng nhập không thành công.";
+                }
+                document.getElementById("thongbao").innerHTML = thongbao;
+            }
+        </script>
+    </head>
+    <body>
+        <h3>Nhập tài khoản</h3>
+        Username: <br><input type="text" autocomplete="on"></br>
+        Password: <br><input type="password" id="password"><br>
+        <button onclick="dangnhap()">ĐĂNG NHẬP</button>
+        <div id="thongbao"></div>
+        
+    </body>
+</html>
