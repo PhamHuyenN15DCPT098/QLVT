@@ -5,27 +5,31 @@
  */
 package quanlyvattu;
 
+import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
+import java.sql.Date;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import sun.util.calendar.BaseCalendar;
 
 /**
  *
  * @author USER
  */
-public class Phat_sinh {
+public class Phieu {
     int so_phieu;
     String day;
+    LocalDate date;
     char loai;
     String ho_ten_khach_hang;
     String manv;
     String makho;
 
-    public Phat_sinh() {
+    public Phieu() {
     }
 
-    public Phat_sinh(int so_phieu, String day, char loai, String ho_ten_khach_hang, String manv, String makho) {
+    public Phieu(int so_phieu, char loai, String ho_ten_khach_hang, String manv, String makho) {
         this.so_phieu = so_phieu;
-        this.day = day;
+        this.date = LocalDate.now();
         this.loai = loai;   //   nhap/xuat
         this.ho_ten_khach_hang = ho_ten_khach_hang;
         this.manv = manv;
@@ -82,7 +86,7 @@ public class Phat_sinh {
     
     public boolean addPhieu(){
         CSDL.moKetNoi("vattu", "root", "root");
-        String sql = "Insert into phatsinh (ngay, loai, hotenkh, manv, makho) values ('"+day+"','"+loai+"','"+ho_ten_khach_hang+"','"+manv+"','"+makho+"')";
+        String sql = "Insert into phieu (ngay, loai, hotenkh, manv, makho) values ('"+date+"','"+loai+"','"+ho_ten_khach_hang+"','"+manv+"','"+makho+"')";
         boolean kq = true;
         try{
             CSDL.stm.executeUpdate(sql);
@@ -94,7 +98,7 @@ public class Phat_sinh {
         return kq;
     }
     public static void main(String[] arg) {
-        Phat_sinh phieu = new Phat_sinh(1, "05/06/2018", 'n', "dmm Mẫu", "nv1", "mk1");
+        Phieu phieu = new Phieu(1, 'n', "dmm Mẫu", "nv1", "mk1");
         boolean kq = phieu.addPhieu();
         System.out.println(kq);
     }
