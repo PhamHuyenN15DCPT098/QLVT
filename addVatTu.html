@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            function addVatTu() {
+                var input = document.getElementsByTagName("input");                
+                for (var i = 0; i < input.length; i++) {
+                    if (input[i].value == "") {
+                        alert("Bạn chưa nhập đủ thông tin");
+                        //document.getElementById("thongbao").innerHTML = "Bạn chưa nhập đủ thông tin!";
+                        return;
+                    }
+                }
+                var thamso = "mavt=" + input[0].value + "&tenvt=" + input[1].value
+                        + "&dvt=" + input[2].value + "&soluongton=" + input[3].value;
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.open("get", "../jsp/addVatTu.jsp?" + thamso, false);
+                xmlhttp.send();
+                var thongbao = xmlhttp.responseText.trim();
+                if (thongbao == "true") {
+                    thongbao = "Nhập Thành Công";
+                } else {
+                    thongbao = "Nhập không thành công.";
+                }
+                //document.getElementById("thongbao").innerHTML = thongbao;
+                alert(thongbao);
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Thêm Vật Tư</h1>                       
+        Mã Vật Tư:<br><input type=text name ="mavt"><br>
+        Tên Vật Tư:<br><input type=text name ="tenvt"><br>
+        Đơn Vị Tính:<br><input type=text name ="dvt"><br>
+        Số Lượng Tồn Kho:<br><input type=number name ="soluongton"><br>
+        <button onclick="addVatTu()">Thêm Vật Tư</button>    
+        <div id="thongbao"></div>
+    </body>
+</html>
