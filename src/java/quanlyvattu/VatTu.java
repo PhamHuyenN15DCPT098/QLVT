@@ -33,6 +33,9 @@ public class VatTu {
         this.soluongton = soluongton;
     }
 
+    public VatTu() {
+    }
+
     public String getMavt() {
         return mavt;
     }
@@ -65,7 +68,7 @@ public class VatTu {
         this.soluongton = soluongton;
     }
 
-    public Map<String, VatTu> getVatTu() {
+    public Map<String, VatTu> getVatTus() {
         return vattus;
     }
     
@@ -254,11 +257,11 @@ public class VatTu {
 //        }else{
 //            System.out.println("Cap Nhat Khong Thanh Cong");
 //        }
-        boolean ketqua=VatTu.xoaVatTu("t02");
-        if(ketqua==true){
-            System.out.println("Xoa thanh cong");
-        }else{
-            System.out.println("Xoa Khong Thanh Cong");
-        }
+//        boolean ketqua=VatTu.xoaVatTu("t02");
+//        if(ketqua==true){
+//            System.out.println("Xoa thanh cong");
+//        }else{
+//            System.out.println("Xoa Khong Thanh Cong");
+//        }
     }
 }

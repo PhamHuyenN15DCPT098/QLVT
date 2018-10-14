@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Cập nhật vật tư</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            var xmlhttp = new XMLHttpRequest();
+            function capnhatVatTu() {
+                xmlhttp.open("get", "../jsp/capnhatVatTu.jsp", false);
+                xmlhttp.send();
+                var output = xmlhttp.responseText.trim();
+                document.getElementById("vattu").innerHTML=output;
+            }
+        </script>
+    </head>
+    <body >
+        <h3>Cập nhật vật tư</h3>
+        <form>
+        Nhập mã vật tư cần sửa <input name="mavt"><br>
+        Nhập tên vật tư mới <input name="tenvt"><br>
+        Nhập đơn vị tính <input name="dvt"><br>
+        Nhập số lượng tồn <input name="soluongton" type="number"><br>
+        <button onclick="capnhatVatTu();">Cập nhật</button>
+        <p id="vattu"></p>
+        </form>
+    </body>
+</html>

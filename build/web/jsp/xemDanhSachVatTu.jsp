@@ -1,20 +1,47 @@
-l<%@page import="quanlyvattu.VatTu" %>
+
+<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
+<%@page import="quanlyvattu.NhanVien"%>
+<%@page import="quanlyvattu.VatTu" %>
 <%@page import="java.util.Map"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    
-    VatTu vattu = (VatTu) session.getAttribute("vattu");
-    Map<String, VatTu> vattus = vattu.getVatTu();
-    if (vattus==null||vattus.isEmpty()) {
-        out.println("empty");
+    /*    NhanVien nhanvien = (NhanVien) session.getAttribute("nh
+    if (nhanvien == nul
+    out.println("Bạn chưa đăng nhập!");
+    return;
+    }*/
+    String table="<table border=1>";
+    table +="<tr>"
+            + "<th>Mã vật tư</th>"
+            + "<th>Tên vật tư</th>"
+            + "<th>Đơn vị tính</th>"
+            + "<th>Số lượng tồn</th>"
+            +"<th>Cập nhật</th>"
+            +"<th>Xóa</th>"
+            + "</tr>";
+    List<VatTu> list= new ArrayList();
+    list=VatTu.layDanhSachVatTu();
+    if (list==null){
+        out.print("Khong co vat tu nao");
         return;
     }
-    for (String mavt : vattus.keySet()) {    
-        
-        VatTu vattu1=vattus.get(mavt);
-        out.println(vattu1);
-                   
+    else
+    {
+        for (VatTu vt: list){
+        table +="<tr><form>"
+                + "<td><textarea name='"+"mavt"+"' readonly>"+vt.getMavt()+"</textarea></td>"
+                + "<td><textarea name='"+"tenvt"+"'>"+vt.getTenvt()+"</textarea></td>"
+                + "<td><textarea name='"+"dvt"+"'>"+vt.getDvt()+"</textarea></td>"
+                + "<td><textarea name='"+"soluongton"+"'>"+vt.getSoluongton()+"</textarea></td>"
+                + "<td><input type='"+"submit"+"' formaction='"+"capnhatVatTu.jsp"+"' value='"+"Cập nhật"+"' ></td>"
+                + "<td>"+"Xóa"+"</td>"
+                + "</form></tr>";
     }
-  
+    table+="</table>";
+    out.print(table);
+    }
+    
  
 %>

@@ -14,11 +14,11 @@ and open the template in the editor.
             function xemVatTu() {
                 xmlhttp.open("get", "../jsp/xemDanhSachVatTu.jsp", false);
                 xmlhttp.send();
-                var vattu = xmlhttp.responseText.trim();
-                if (vattu == null) {
-                    document.write("Chưa có vật tư");
+                var table = xmlhttp.responseText.trim();
+                if (table == "empty") {
+                    document.write("Không có vật tư");
                 } else {
-                    document.getElementById("vattu").innerHTML = vattu;
+                    document.getElementById("vattu").innerHTML = table;
                 }
             }
             function capnhatVatTu() {
@@ -27,26 +27,13 @@ and open the template in the editor.
             function xoaVatTu() {
                 xmlhttp.open("get", "../jsp/xoaVatTu.jsp", false);
                 xmlhttp.send();
-
+            }
         </script>
     </head>
     <body onload="xemVatTu();">
         <h3>Danh Sách Vật Tư</h3>
-<!--        <table border=1>
-            <tr><th>Mã Vật Tư</th><th>Tên Vật Tư</th><th>Đơn Vị Tính</th><th>Số Lượng Tồn</th>
-                <th>Cập nhật</th><th>Xóa</th>
-            </tr>            
-            <tr>
-            <form>
-                <td><input name=mavt></td>
-                <td><textarea name=tenvt></textarea></td>
-                <td><textarea name=dvt></textarea></td>
-                <td><textarea name=soluongton></textarea></td>                        
-                <td><input type=submit formaction="capnhatVatTu.jsp" id="VatTu" value="Cập nhật" ></td>
-                <td><a href="xoaVatTu.jsp?mavt=<%=mavt%>">Xóa</a></td>
-            </form>
-        </tr>
-    </table>-->
-        <div id="vattu"></div>
-</body>
+<!--         <form action="../jsp/capnhatVatTu.jsp" id="vattu"></form>
+        <button onclick="capnhatVatTu();">CẬP NHẬT VẬT TƯ</button>-->
+<div id="vattu"></div>
+    </body>
 </html>
