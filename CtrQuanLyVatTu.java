@@ -1,11 +1,10 @@
-package qlyvattu;
+package quanlyvattu;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -18,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author USER
  */
-@WebServlet(urlPatterns = {"/CtrQuanLyVatTu"})
+@WebServlet(name="CtrQuanLyVatTu", urlPatterns = {"/CtrQuanLyVatTu"})
 public class CtrQuanLyVatTu extends HttpServlet {
 
     /**
@@ -38,16 +37,17 @@ public class CtrQuanLyVatTu extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet CtrQuanLyVatTu</title>");            
+            out.println("<title>Servlet CtrQuanLyVatTu</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet CtrQuanLyVatTu at " + request.getContextPath() + "</h1>");
-            String yc=request.getParameter("yc");
-            String url="/qlvattu/html";
-            if (yc.equals("dangnhap")){
-                response.sendRedirect(url+"dangnhap.html");
+            String yc = request.getParameter("yc");
+            String url = "/QLVATTU/html/";
+            if (yc.equals("addvattu")) {
+                response.sendRedirect(url + "addVatTu.html");
             }
-            
+            if (yc.equals("xemvattu")) {
+                response.sendRedirect(url + "xemDanhSachVatTu.html");
+            }
             out.println("</body>");
             out.println("</html>");
         }

@@ -1,4 +1,4 @@
-package qlyvattu;
+package quanlyvattu;
 
 
 import java.sql.ResultSet;

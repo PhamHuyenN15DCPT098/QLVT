@@ -1,5 +1,5 @@
 <%@page import="java.sql.ResultSet"%>
-<%@page import="qlyvattu.NhanVien"%>
+<%@page import="quanlyvattu.NhanVien"%>
 <%
     String username = request.getParameter("username");
     String password = request.getParameter("password");

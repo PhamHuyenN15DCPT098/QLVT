@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import quanlyvattu.CSDL;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -74,7 +75,7 @@ public class VatTu {
     }
     
     public boolean addVatTu() {
-        CSDL.moKetNoi("vattu", "root", "01644497453");
+        CSDL.moKetNoi("vattu", "root", "root");
         String sql = " insert into vattu values ('" + mavt + "','" + tenvt + "','" + dvt + "'," + soluongton + ")";
         boolean ketqua = true;
         try {
@@ -88,7 +89,7 @@ public class VatTu {
     }
 
     public static List<VatTu> layDanhSachVatTu() {
-        CSDL.moKetNoi("vattu", "root", "01644497453");
+        CSDL.moKetNoi("vattu", "root", "root");
         List<VatTu> listvattu = new ArrayList();
         String sql = " select * from vattu";
         try {
@@ -106,7 +107,7 @@ public class VatTu {
     }
 
     public static VatTu timTheoMaVatTu(String mavt) {
-        CSDL.moKetNoi("vattu", "root", "01644497453");
+        CSDL.moKetNoi("vattu", "root", "root");
         String sql = "select * from vattu where mavt='" + mavt + "'";
         VatTu vattu = null;
         try {
@@ -122,7 +123,7 @@ public class VatTu {
     }
 
     public static List<VatTu> timVatTuTheoTenVatTu(String tenvt) {
-        CSDL.moKetNoi("vattu", "root", "01644497453");
+        CSDL.moKetNoi("vattu", "root", "root");
         String sql = "SELECT * FROM vattu WHERE tenvt like '%" + tenvt + "%'";
         List<VatTu> listvattu = null;
         try {
@@ -141,7 +142,7 @@ public class VatTu {
     }
 
     public static List<VatTu> timVatTuConHang() {
-        CSDL.moKetNoi("vattu", "root", "01644497453");
+        CSDL.moKetNoi("vattu", "root", "root");
         String sql = "select * from vattu where soluongton = 0";
         List<VatTu> listvattu = null;
         try {
@@ -164,7 +165,7 @@ public class VatTu {
         if(vattu==null){
             ketqua=false;
         }else{
-            CSDL.moKetNoi("vattu", "root", "01644497453");
+            CSDL.moKetNoi("vattu", "root", "root");
             String sql= "update vattu set tenvt='" + tenvt + "',dvt='" + dvt + "', soluongton="+soluongton+"" + " where mavt='" + mavt+"'";
             try{
                 CSDL.stm.executeUpdate(sql);
@@ -184,7 +185,7 @@ public class VatTu {
         if(vattu==null){
             ketqua=false;
         }else{
-            CSDL.moKetNoi("vattu", "root", "01644497453");
+            CSDL.moKetNoi("vattu", "root", "root");
             String sql= "delete from vattu where mavt='" + mavt+"'";
             try{
                 CSDL.stm.executeUpdate(sql);
@@ -203,7 +204,7 @@ public class VatTu {
         if (vattu == null || vattu.getSoluongton() + soluongton < 0) {
             ketqua = false;
         } else {
-            CSDL.moKetNoi("vattu", "root", "01644497453");
+            CSDL.moKetNoi("vattu", "root", "root");
             String sql = "UPDATE vattu SET soluongton=" + (vattu.getSoluongton() + soluongton)
                     + " WHERE mavt='" + mavt + "'";
             try {
