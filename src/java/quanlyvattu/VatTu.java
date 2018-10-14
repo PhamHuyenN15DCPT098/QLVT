@@ -33,6 +33,9 @@ public class VatTu {
         this.soluongton = soluongton;
     }
 
+    public VatTu() {
+    }
+
     public String getMavt() {
         return mavt;
     }
@@ -65,7 +68,7 @@ public class VatTu {
         this.soluongton = soluongton;
     }
 
-    public Map<String, VatTu> getVatTu() {
+    public Map<String, VatTu> getVatTus() {
         return vattus;
     }
     
