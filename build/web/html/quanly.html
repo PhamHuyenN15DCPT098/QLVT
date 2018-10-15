@@ -1,20 +1,73 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
         <title>Quản lý vật tư</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            #menu *{
+                margin: 0;
+                padding: 0;
+            }
+            #menu ul {
+                list-style-type: none; 
+                background-color: lightgray;
+                overflow: auto;
+                width: 20%;
+                height: 100%;
+                position: fixed;                
+            }
+
+            #menu a {
+                display: block;
+                text-decoration: none;
+                color: blueviolet;
+                padding: 14px 16px;                
+            }
+            #menu div{
+                display: none;
+                position: absolute;
+                background-color: cyan;
+                width:100%;
+            }
+            #menu a:hover {
+                background-color: red;
+                color: white;
+            }
+            #menu li:hover div{
+                display:block;
+            }
+            #menu #content{
+                margin-left:20%;
+                width:80%;
+                height:1000px;
+                border: none;
+            }
+        </style>
     </head>
     <body>
-        <a href="/QLVATTU/CtrQuanLyVatTu?yc=addvattu" target="content">Thêm Vật tư</a>
-        <a href="/QLVATTU/CtrQuanLyVatTu?yc=xemvattu" target="content">Xem DS Vật tư</a>
-        <a href="/QLVATTU/CtrQuanLyVatTu?yc=lap_phieu" target="content">Phiếu</a>
-        <a href="/QLVATTU/CtrQuanLyVatTu?yc=kho" target="content">Kho</a><br>
-        <iframe style="height:500px; width:100%" name="content"></iframe>
+        <div id="menu">
+            <ul>
+                <li><a href="#">Tìm Vật Tư</a>
+                    <div>
+                        <a href="/QLVATTU/CtrQuanLyVatTu?yc=timtheoma" target="content">Tìm theo mã</a>
+                        <a href="/QLVATTU/CtrQuanLyVatTu?yc=timtheoten" target="content">Tìm theo tên</a>                       
+                        <a href="/QLVATTU/CtrQuanLyVatTu?yc=timhangcon" target="content">Tìm hàng còn</a><br>
+                    </div>
+                </li>
+                <li>
+                    <a href="/QLVATTU/CtrQuanLyVatTu?yc=addvattu" target="content">Thêm Vật tư</a>
+                </li>
+                <li>
+                    <a href="/QLVATTU/CtrQuanLyVatTu?yc=xemvattu" target="content">Xem DS Vật tư</a>
+                </li>
+                <li>
+                    <a href="/QLVATTU/CtrQuanLyVatTu?yc=lap_phieu" target="content">Phiếu</a>
+                </li>
+                <li>
+                    <a href="/QLVATTU/CtrQuanLyVatTu?yc=kho" target="content">Kho</a>
+                </li>
+            </ul>
+            <iframe id="content" name="content"></iframe>  
+        </div>                 
     </body>
 </html>

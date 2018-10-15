@@ -99,11 +99,7 @@ public class Phieu {
         return kq;
     }
     public static void main(String[] arg) {
-<<<<<<< HEAD
-        Phieu phieu = new Phieu(1, 'n', "mẫu", "nv1", "mk1");
-=======
         Phieu phieu = new Phieu("nhap", "dmm Mẫu", "nv1", "mk1");
->>>>>>> 60cbedb02ef3eac714cf3d17af023a8cf7ab4d7d
         boolean kq = phieu.addPhieu();
         System.out.println(kq);
     }

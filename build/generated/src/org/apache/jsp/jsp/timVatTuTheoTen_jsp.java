@@ -3,14 +3,12 @@ package org.apache.jsp.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
-import org.apache.jasper.tagplugins.jstl.core.ForEach;
 import java.util.ArrayList;
 import java.util.List;
-import quanlyvattu.NhanVien;
 import quanlyvattu.VatTu;
-import java.util.Map;
+import quanlyvattu.NhanVien;
 
-public final class xemDanhSachVatTu_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class timVatTuTheoTen_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -47,52 +45,39 @@ public final class xemDanhSachVatTu_jsp extends org.apache.jasper.runtime.HttpJs
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
 
-    /*    NhanVien nhanvien = (NhanVien) session.getAttribute("nh
-    if (nhanvien == nul
-    out.println("Bạn chưa đăng nhập!");
-    return;
-    }*/
-    String table="<table border=1>";
-    table +="<tr>"
-            + "<th>Mã vật tư</th>"
-            + "<th>Tên vật tư</th>"
-            + "<th>Đơn vị tính</th>"
-            + "<th>Số lượng tồn</th>"
-            +"<th>Cập nhật</th>"
-            +"<th>Xóa</th>"
-            + "</tr>";
-    List<VatTu> list= new ArrayList();
-    list=VatTu.layDanhSachVatTu();
-    if (list==null){
-        out.print("Khong co vat tu nao");
+
+    String tenvt = request.getParameter("tenvt");
+    List<VatTu> list = VatTu.timVatTuTheoTenVatTu(tenvt);
+    if (list == null) {
+        String table="empty";
+        out.print(table);
         return;
+    } else {
+        String table = "<table border=1>";
+        table += "<tr>"
+                + "<th>Mã vật tư</th>"
+                + "<th>Tên vật tư</th>"
+                + "<th>Đơn vị tính</th>"
+                + "<th>Số lượng tồn</th>"              
+                + "</tr>";                            
+            for (VatTu vt : list) {
+                table += "<tr><form>"
+                        + "<td><textarea name='" + "mavt" + "' readonly>" + vt.getMavt() + "</textarea></td>"
+                        + "<td><textarea name='" + "tenvt" + "'>" + vt.getTenvt() + "</textarea></td>"
+                        + "<td><textarea name='" + "dvt" + "'>" + vt.getDvt() + "</textarea></td>"
+                        + "<td><textarea name='" + "soluongton" + "'>" + vt.getSoluongton() + "</textarea></td>"
+                        + "</form></tr>";
+            }
+            table += "</table>";
+            out.print(table);
+        }
     }
-    else
-    {
-        for (VatTu vt: list){
-        table +="<tr><form>"
-                + "<td><textarea name='"+"mavt"+"' readonly>"+vt.getMavt()+"</textarea></td>"
-                + "<td><textarea name='"+"tenvt"+"'>"+vt.getTenvt()+"</textarea></td>"
-                + "<td><textarea name='"+"dvt"+"'>"+vt.getDvt()+"</textarea></td>"
-                + "<td><textarea name='"+"soluongton"+"'>"+vt.getSoluongton()+"</textarea></td>"
-                + "<td><input type='"+"submit"+"' formaction='"+"capnhatVatTu.jsp"+"' value='"+"Cập nhật"+"' ></td>"
-                + "<td><input type='"+"submit"+"' formaction='"+"xoaVatTu.jsp"+"' value='"+"Xóa"+"' ></td>"
-                + "</form></tr>";
-    }
-    table+="</table>";
-    out.print(table);
-    }
-    
- 
 
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
