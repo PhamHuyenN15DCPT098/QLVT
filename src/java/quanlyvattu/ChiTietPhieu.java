@@ -37,6 +37,7 @@ public class ChiTietPhieu {
         this.mavt = mavt;
         this.soluong = soluong;
         this.dongia = dongia;
+        this.trigia=dongia*soluong;
     }
 
     public int getMaPhieu() {

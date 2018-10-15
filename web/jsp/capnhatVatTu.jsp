@@ -11,11 +11,12 @@
     String tenvt = request.getParameter("tenvt");  
     String dvt = request.getParameter("dvt");  
     int soluongton=Integer.parseInt(request.getParameter("soluongton"));
-    if (soluongton<0){
+    int dongia=Integer.parseInt(request.getParameter("dongia"));
+    if (soluongton<0 || dongia<0){
         response.sendRedirect("xemDanhSachVatTu.jsp");
         return;
     }
     boolean ketqua;
-    ketqua =VatTu.capNhatVatTu(mavt, tenvt, dvt, soluongton);
+    ketqua =VatTu.capNhatVatTu(mavt, tenvt, dvt, soluongton, dongia);
     response.sendRedirect("../jsp/xemDanhSachVatTu.jsp");
 %>

@@ -31,8 +31,15 @@ and open the template in the editor.
                 xmlhttp.open("get", "../jsp/lapphieu.jsp?"+d,false);
                 xmlhttp.send();
                 var kq = xmlhttp.responseText.trim();
-                if(kq != "")
+                if(kq == ""){
+                    xmlhttp.open("get", "../html/chiTietPhieu.html", false);
+                    xmlhttp.send();
+                    document.write(xmlhttp.responseText);
+                }
+                else{
                     alert(kq);
+                }
+                    
             }
         </script>
     </head>

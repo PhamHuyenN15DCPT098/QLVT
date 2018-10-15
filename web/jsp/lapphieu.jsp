@@ -11,12 +11,14 @@
     String thongbao;
     if(kq == false){
         thongbao = "Chưa thêm phiếu được";
+        out.print(thongbao);
     }else{
         thongbao = "";
+        out.print(thongbao);
         session.setAttribute("hotenkh", hotenkh);
         session.setAttribute("loai", loai);
         session.setAttribute("makho", makho);
-        response.sendRedirect("../html/nhapChiTietPhieu.html");
+//        response.sendRedirect("chiTietPhieu.html");
     }
-    out.print(thongbao);
+    //out.print(thongbao);
 %>

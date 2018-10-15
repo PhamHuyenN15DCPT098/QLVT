@@ -23,14 +23,15 @@ public class VatTu {
     String tenvt;
     String dvt;
     int soluongton;
+    int dongia;
     Map<String, VatTu> vattus = new HashMap();
-    
-    
-    public VatTu(String mavt, String tenvt, String dvt, int soluongton) {
+
+    public VatTu(String mavt, String tenvt, String dvt, int soluongton, int dongia) {
         this.mavt = mavt;
         this.tenvt = tenvt;
         this.dvt = dvt;
         this.soluongton = soluongton;
+        this.dongia = dongia;
     }
 
     public VatTu() {
@@ -63,23 +64,18 @@ public class VatTu {
     public int getSoluongton() {
         return soluongton;
     }
-    
+
+    public int getDongia() {
+        return dongia;
+    }
+
     public void setSoluongton(int soluongton) {
         this.soluongton = soluongton;
     }
 
-    public Map<String, VatTu> getVatTus() {
-        return vattus;
-    }
-    
-    public VatTu timVatTu(String mavt) {
-        VatTu vattu = vattus.get(mavt);
-        return vattu;
-    }
-    
     public boolean addVatTu() {
         CSDL.moKetNoi("vattu", "root", "root");
-        String sql = " insert into vattu values ('" + mavt + "','" + tenvt + "','" + dvt + "'," + soluongton + ")";
+        String sql = " insert into vattu values ('" + mavt + "','" + tenvt + "','" + dvt + "'," + soluongton + "," + dongia + ")";
         boolean ketqua = true;
         try {
             CSDL.stm.executeUpdate(sql);
@@ -98,7 +94,7 @@ public class VatTu {
         try {
             ResultSet rs = CSDL.stm.executeQuery(sql);
             while (rs.next()) {
-                VatTu vattu = new VatTu(rs.getString("mavt"), rs.getString("tenvt"), rs.getString("dvt"), rs.getInt("soluongton"));
+                VatTu vattu = new VatTu(rs.getString("mavt"), rs.getString("tenvt"), rs.getString("dvt"), rs.getInt("soluongton"), rs.getInt("dongia"));
                 listvattu.add(vattu);
             }
         } catch (SQLException ex) {
@@ -116,7 +112,7 @@ public class VatTu {
         try {
             ResultSet rs = CSDL.stm.executeQuery(sql);
             if (rs.next()) {
-                vattu = new VatTu(rs.getString("mavt"), rs.getString("tenvt"), rs.getString("dvt"), rs.getInt("soluongton"));
+                vattu = new VatTu(rs.getString("mavt"), rs.getString("tenvt"), rs.getString("dvt"), rs.getInt("soluongton"), rs.getInt("dongia"));
             }
         } catch (SQLException ex) {
             System.out.println("Error: " + ex.getMessage());
@@ -133,11 +129,11 @@ public class VatTu {
             ResultSet rs = CSDL.stm.executeQuery(sql);
             while (rs.next()) {
                 VatTu vattu = new VatTu(rs.getString("mavt"), rs.getString("tenvt"),
-                        rs.getString("dvt"), rs.getInt("soluongton"));
+                        rs.getString("dvt"), rs.getInt("soluongton"), rs.getInt("dongia"));
                 listvattu.add(vattu);
             }
         } catch (SQLException ex) {
-            listvattu=null;
+            listvattu = null;
             System.out.println(ex.getMessage());
         }
         CSDL.dongKetNoi();
@@ -152,7 +148,7 @@ public class VatTu {
             ResultSet rs = CSDL.stm.executeQuery(sql);
             listvattu = new ArrayList();
             while (rs.next()) {
-                VatTu vattu = new VatTu(rs.getString("mavt"), rs.getString("tenvt"), rs.getString("dvt"), rs.getInt("soluongton"));
+                VatTu vattu = new VatTu(rs.getString("mavt"), rs.getString("tenvt"), rs.getString("dvt"), rs.getInt("soluongton"), rs.getInt("dongia"));
                 listvattu.add(vattu);
             }
         } catch (SQLException ex) {
@@ -162,45 +158,47 @@ public class VatTu {
         return listvattu;
     }
 
-    public static boolean capNhatVatTu(String mavt, String tenvt, String dvt, int soluongton){
-        VatTu vattu= VatTu.timTheoMaVatTu(mavt);
+    public static boolean capNhatVatTu(String mavt, String tenvt, String dvt, int soluongton, int dongia) {
+        VatTu vattu = VatTu.timTheoMaVatTu(mavt);
         boolean ketqua;
-        if(vattu==null){
-            ketqua=false;
-        }else{
+        if (vattu == null) {
+            ketqua = false;
+        } else {
             CSDL.moKetNoi("vattu", "root", "root");
-            String sql= "update vattu set tenvt='" + tenvt + "',dvt='" + dvt + "', soluongton="+soluongton+"" + " where mavt='" + mavt+"'";
-            try{
+            String sql = "update vattu set tenvt='" + tenvt + "', dvt='" + dvt + "',"
+                    + "soluongton=" + soluongton+ ", dongia=" + dongia + " where mavt='"+mavt+"'";
+            try {
                 CSDL.stm.executeUpdate(sql);
-                ketqua=true;
-            }catch(SQLException ex){
+                ketqua = true;
+            } catch (SQLException ex) {
                 System.out.println(ex.getMessage());
-                ketqua=false;
+                ketqua = false;
             }
         }
         CSDL.dongKetNoi();
         return ketqua;
     }
-    
-    public static boolean xoaVatTu(String mavt){
-        VatTu vattu= VatTu.timTheoMaVatTu(mavt);
+
+    public static boolean xoaVatTu(String mavt) {
+        VatTu vattu = VatTu.timTheoMaVatTu(mavt);
         boolean ketqua;
-        if(vattu==null){
-            ketqua=false;
-        }else{
+        if (vattu == null) {
+            ketqua = false;
+        } else {
             CSDL.moKetNoi("vattu", "root", "root");
-            String sql= "delete from vattu where mavt='" + mavt+"'";
-            try{
+            String sql = "delete from vattu where mavt='" + mavt + "'";
+            try {
                 CSDL.stm.executeUpdate(sql);
-                ketqua=true;
-            }catch(SQLException ex){
+                ketqua = true;
+            } catch (SQLException ex) {
                 System.out.println(ex.getMessage());
-                ketqua=false;
+                ketqua = false;
             }
         }
         CSDL.dongKetNoi();
         return ketqua;
     }
+
     public static boolean capNhatSoLuongTon(String mavt, int soluongton) {
         VatTu vattu = VatTu.timTheoMaVatTu(mavt);
         boolean ketqua;
@@ -224,7 +222,7 @@ public class VatTu {
 
     @Override
     public String toString() {
-        return "Mã VT: " + mavt + "--Tên VT: " + tenvt + "--Đơn Vị Tính: " + dvt + "--Số Lượng Tồn Kho: " + soluongton;
+        return "Mã VT: " + mavt + "--Tên VT: " + tenvt + "--Đơn Vị Tính: " + dvt + "--Số Lượng Tồn Kho: " + soluongton + "--Đơn giá: " + dongia;
     }
 
     public static void main(String[] arg) {
@@ -235,7 +233,6 @@ public class VatTu {
 //        } else {
 //            System.out.println("Nhập Không Thành Công");
 //        }
-
 //        List<VatTu> listvattu = VatTu.layDanhSachVatTu();
 //        for(VatTu vattu:listvattu){
 //            System.out.println(vattu);
@@ -246,11 +243,11 @@ public class VatTu {
 //        } else {
 //            System.out.println("Khong Tim Thay Vat Tu");
 //        }
-        List<VatTu> listvattu =VatTu.timVatTuTheoTenVatTu("panasonic");
-        for(VatTu vattu: listvattu){
+        List<VatTu> listvattu = VatTu.timVatTuTheoTenVatTu("panasonic");
+        for (VatTu vattu : listvattu) {
             System.out.println(vattu);
-    }
-       
+        }
+
 //        boolean ketqua=VatTu.capNhatVatTu("T3", "Tivi Samsung", "Cái", 30);
 //        if(ketqua==true){
 //            System.out.println("Cap nhat thanh cong");

@@ -17,7 +17,8 @@
                 + "<th>Mã vật tư</th>"
                 + "<th>Tên vật tư</th>"
                 + "<th>Đơn vị tính</th>"
-                + "<th>Số lượng tồn</th>"              
+                + "<th>Số lượng tồn</th>" 
+                + "<th>Đơn giá</th>" 
                 + "</tr>";
         List<VatTu> list = new ArrayList();
         list.add(vattu);
@@ -31,6 +32,7 @@
                         + "<td><textarea name='" + "tenvt" + "'readonly>" + vt.getTenvt() + "</textarea></td>"
                         + "<td><textarea name='" + "dvt" + "'readonly>" + vt.getDvt() + "</textarea></td>"
                         + "<td><textarea name='" + "soluongton" + "'readonly>" + vt.getSoluongton() + "</textarea></td>"
+                        + "<td><textarea name='" + "dongia" + "'readonly>" + vt.getDongia()+ "</textarea></td>"
                         + "</form></tr>";
             }
             table += "</table>";
