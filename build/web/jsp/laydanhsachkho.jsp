@@ -7,7 +7,7 @@
         dskho = Kho.layDanhSachKho();
         if(dskho == null)
             return;
-        String select ="<select name='"+"makho"+"'>";
+        String select ="<select id='"+"makho"+"'>";
         for(Kho kho: dskho){
             select += "<option value = "+kho.getMakho()+">"+kho.getMakho()+"</option>";
         }

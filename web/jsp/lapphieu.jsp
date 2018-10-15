@@ -6,14 +6,17 @@
     String loai = request.getParameter("loai");
     String makho = request.getParameter("makho");
     NhanVien nv = (NhanVien)session.getAttribute("nhanvien");
-    out.println(nv.getManv());
     Phieu p = new Phieu(loai, hotenkh, nv.getManv(), makho);
     boolean kq = p.addPhieu();
     String thongbao;
     if(kq == false){
         thongbao = "Chưa thêm phiếu được";
     }else{
-        thongbao = "Thêm phiếu thành công";
+        thongbao = "";
+        session.setAttribute("hotenkh", hotenkh);
+        session.setAttribute("loai", loai);
+        session.setAttribute("makho", makho);
+        response.sendRedirect("../html/nhapChiTietPhieu.html");
     }
     out.print(thongbao);
 %>
