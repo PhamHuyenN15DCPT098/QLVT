@@ -18,6 +18,7 @@
             + "<th>Tên vật tư</th>"
             + "<th>Đơn vị tính</th>"
             + "<th>Số lượng tồn</th>"
+            + "<th>Đơn giá</th>"
             +"<th>Cập nhật</th>"        
             + "</tr>";
     List<VatTu> list= new ArrayList();
@@ -34,6 +35,7 @@
                 + "<td><textarea name='"+"tenvt"+"'>"+vt.getTenvt()+"</textarea></td>"
                 + "<td><textarea name='"+"dvt"+"'>"+vt.getDvt()+"</textarea></td>"
                 + "<td><textarea name='"+"soluongton"+"'>"+vt.getSoluongton()+"</textarea></td>"
+                + "<td><textarea name='"+"dongia"+"'>"+vt.getDongia()+"</textarea></td>"
                 + "<td><input type='"+"submit"+"' formaction='"+"../jsp/capnhatVatTu.jsp"+"' value='"+"Cập nhật"+"'></td>"
                 + "</form></tr>";
     }

@@ -18,12 +18,22 @@ and open the template in the editor.
                         return;
                     }
                 }
+                if (input[3].value<0 && input[4].value <=0){
+                     alert("Số lượng phải >=0 và đơn giá phải > 0");
+                    return;
+                }
                 if (input[3].value < 0) {
                     alert("Số lượng phải >= 0");
                     return;
                 }
+                if (input[4].value <= 0) {
+                    alert("Đơn giá phải > 0");
+                    return;
+                }
+                
                 var thamso = "mavt=" + input[0].value + "&tenvt=" + input[1].value
-                        + "&dvt=" + input[2].value + "&soluongton=" + input[3].value;
+                        + "&dvt=" + input[2].value + "&soluongton=" + input[3].value
+                + "&dongia=" + input[4].value;
                 var xmlhttp = new XMLHttpRequest();
                 xmlhttp.open("get", "../jsp/addVatTu.jsp?" + thamso, false);
                 xmlhttp.send();
@@ -43,6 +53,7 @@ and open the template in the editor.
         Tên Vật Tư:<br><input type=text name ="tenvt"><br>
         Đơn Vị Tính:<br><input type=text name ="dvt"><br>
         Số Lượng Tồn Kho:<br><input type=number name ="soluongton"><br>
+        Đơn giá:<br><input type=number name ="dongia"><br>
         <button onclick="addVatTu()">Thêm Vật Tư</button>    
         <div id="thongbao"></div>
     </body>
