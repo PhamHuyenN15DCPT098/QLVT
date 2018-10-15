@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Tìm Vật Tư Theo Tên</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            function timTheoTen() {
+                var input = document.getElementsByTagName("input");
+                for (var i = 0; i < input.length; i++) {
+                    if (input[i].value == "") {
+                        alert("Bạn chưa nhập thông tin!");
+                        return;
+                    }
+                }
+                var thamso = "tenvt=" + input[0].value;
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.open("get", "../jsp/timVatTuTheoTen.jsp?" + thamso, false);
+                xmlhttp.send();
+                var table = xmlhttp.responseText.trim();               
+                if (table == "empty") {                   
+                    var tb="Khong tim thay vat tu";
+                    alert(tb);                  
+                } else {
+                    document.getElementById("thongbao").innerHTML = table;
+                }               
+            }                        
+        </script>
+    </head>
+    <body>
+        <h1>Tìm Vật Tư</h1>                       
+        Tên Vật Tư:<br><input type=text name ="tenvt"><br>      
+        <button onclick="timTheoTen()">Tìm Vật Tư</button>    
+        <div id="thongbao"></div>
+    </body>
+</html>

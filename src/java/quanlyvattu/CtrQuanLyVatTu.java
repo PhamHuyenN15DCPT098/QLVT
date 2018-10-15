@@ -46,8 +46,25 @@ public class CtrQuanLyVatTu extends HttpServlet {
                 response.sendRedirect(url + "addVatTu.html");
             }
             if (yc.equals("xemvattu")) {
+<<<<<<< HEAD
                 response.sendRedirect(url+"../jsp/xemDanhSachVatTu.jsp");
             }
+=======
+                response.sendRedirect(url+"../jsp/xemDanhSachVatTu.jsp");                
+            }          
+            if (yc.equals("timtheoma")) {
+                response.sendRedirect(url+ "timVatTuTheoMa.html");                
+            }  
+            if (yc.equals("timtheoten")) {
+                response.sendRedirect(url+ "timVatTuTheoTen.html");                
+            }  
+            if (yc.equals("timhangcon")) {
+                response.sendRedirect(url+ "../jsp/timVatTuConHang.jsp");                
+            }  
+            if(yc.equals("lap_phieu")){
+                response.sendRedirect(url+"lap_phieu.html");
+            }             
+>>>>>>> d2e5be9248c5802d39f052a0c8e7cc33502f72f8
             out.println("</body>");
             out.println("</html>");
         }

@@ -146,7 +146,7 @@ public class VatTu {
 
     public static List<VatTu> timVatTuConHang() {
         CSDL.moKetNoi("vattu", "root", "root");
-        String sql = "select * from vattu where soluongton = 0";
+        String sql = "select * from vattu where soluongton > 0";
         List<VatTu> listvattu = null;
         try {
             ResultSet rs = CSDL.stm.executeQuery(sql);
@@ -246,10 +246,10 @@ public class VatTu {
 //        } else {
 //            System.out.println("Khong Tim Thay Vat Tu");
 //        }
-//        List<VatTu> listvattu =VatTu.timVatTuTheoTenVatTu("panasonic");
-//        for(VatTu vattu: listvattu){
-//            System.out.println(vattu);
-//    }
+        List<VatTu> listvattu =VatTu.timVatTuTheoTenVatTu("panasonic");
+        for(VatTu vattu: listvattu){
+            System.out.println(vattu);
+    }
        
 //        boolean ketqua=VatTu.capNhatVatTu("T3", "Tivi Samsung", "Cái", 30);
 //        if(ketqua==true){
@@ -257,11 +257,11 @@ public class VatTu {
 //        }else{
 //            System.out.println("Cap Nhat Khong Thanh Cong");
 //        }
-        boolean ketqua=VatTu.xoaVatTu("t02");
-        if(ketqua==true){
-            System.out.println("Xoa thanh cong");
-        }else{
-            System.out.println("Xoa Khong Thanh Cong");
-        }
+//        boolean ketqua=VatTu.xoaVatTu("t02");
+//        if(ketqua==true){
+//            System.out.println("Xoa thanh cong");
+//        }else{
+//            System.out.println("Xoa Khong Thanh Cong");
+//        }
     }
 }

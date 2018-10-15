@@ -6,26 +6,50 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>Lập Phiếu</title>
+        <title>Lập phiếu</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            var xmlhttp = new XMLHttpRequest();
+            function xemmakho() {
+                xmlhttp.open("get", "../jsp/laydanhsachkho.jsp", false);
+                xmlhttp.send();
+                var select = xmlhttp.responseText.trim();
+                if (select == "") {
+                    document.write("Không tìm được mã kho");
+                } else {
+                    document.getElementById("select").innerHTML = select;
+                }
+            }
+            function lapphieu(){
+                var a,b,c,d;
+                a = document.getElementById("hotenkh").value;
+                b = document.getElementById("loai").value;
+                c = document.getElementById("makho").value;
+                d = "hotenkh="+a+"&loai="+b+"&makho="+c;
+                //alert(d);
+                xmlhttp.open("get", "../jsp/lapphieu.jsp?"+d,false);
+                xmlhttp.send();
+                var kq = xmlhttp.responseText.trim();
+                if(kq != "")
+                    alert(kq);
+            }
+        </script>
     </head>
-    <body>
-        <h3>Lập phiếu</h3><br>
-        <form action="guiform()">
-            Ngày lập phiếu<br> 
-            <input type="date" name="ngay"><br>
-            Loại<br>
-            <select name="loai">
-                <option>Xuất</option>
-                <option>Nhập</option>
-            </select>
-            Họ tên khách hàng<br>
-            <input name = "ho_ten_kh"><br>
-            Mã kho<br>
-            <select name="makho">
-                
-            </select>
-        </form>
+    <body onload="xemmakho();">
+
+        <h3>Lập phiếu</h3>
+        
+        Họ tên khách hàng<br>
+        <input type="text" id="hotenkh"><br>
+        Loại<br>
+        <select id="loai">
+            <option value="Nhập">Nhập</option>
+            <option value="Xuất">Xuất</option>
+        </select><br>
+        Mã kho<br>
+        <div id="select"></div>
+        <button onclick="lapphieu()">Nhập phiếu</button>
+        
     </body>
 </html>
