@@ -8,17 +8,13 @@
     return;
     }*/
     String mavt = request.getParameter("mavt");
-    String tenvt = request.getParameter("tenvt");
-    String dvt = request.getParameter("dvt");
+    String tenvt = request.getParameter("tenvt");  
+    String dvt = request.getParameter("dvt");  
     int soluongton=Integer.parseInt(request.getParameter("soluongton"));
-    boolean ketqua= false;
-    String thongbao="";
+    boolean ketqua;
     ketqua =VatTu.capNhatVatTu(mavt, tenvt, dvt, soluongton);
-    if(ketqua==false){
-        thongbao="Cập nhật vật tư không thành công";
-    }
-    else{
-           thongbao="Cập nhật vật tư thành công";
-        }
-    out.print(thongbao);
+    response.sendRedirect("xemDanhSachVatTu.jsp");
+    
+    
+    
 %>

@@ -36,7 +36,7 @@
                 + "<td><textarea name='"+"dvt"+"'>"+vt.getDvt()+"</textarea></td>"
                 + "<td><textarea name='"+"soluongton"+"'>"+vt.getSoluongton()+"</textarea></td>"
                 + "<td><input type='"+"submit"+"' formaction='"+"capnhatVatTu.jsp"+"' value='"+"Cập nhật"+"' ></td>"
-                + "<td>"+"Xóa"+"</td>"
+                + "<td><input type='"+"submit"+"' formaction='"+"xoaVatTu.jsp"+"' value='"+"Xóa"+"' ></td>"
                 + "</form></tr>";
     }
     table+="</table>";

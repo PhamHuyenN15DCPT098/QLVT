@@ -98,7 +98,7 @@ public class Phieu {
         return kq;
     }
     public static void main(String[] arg) {
-        Phieu phieu = new Phieu(1, 'n', "dmm Mẫu", "nv1", "mk1");
+        Phieu phieu = new Phieu(1, 'n', "mẫu", "nv1", "mk1");
         boolean kq = phieu.addPhieu();
         System.out.println(kq);
     }

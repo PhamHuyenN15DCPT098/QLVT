@@ -3,11 +3,10 @@ package org.apache.jsp.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
-import java.util.ArrayList;
-import java.util.List;
-import quanlyvattu.Kho;
+import quanlyvattu.NhanVien;
+import quanlyvattu.VatTu;
 
-public final class laydanhsachkho_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class capnhatVatTu_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -44,24 +43,37 @@ public final class laydanhsachkho_jsp extends org.apache.jasper.runtime.HttpJspB
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("    ");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
 
-        List <Kho> dskho = new ArrayList();
-        dskho = Kho.layDanhSachKho();
-        if(dskho == null)
-            return;
-        String select ="<select name='"+"makho"+"'>";
-        for(Kho kho: dskho){
-            select += "<option value = "+kho.getMakho()+">"+kho.getMakho()+"</option>";
-        }
-        select += "</select>";
-        out.println(select);
+    /*    NhanVien nhanvien = (NhanVien) session.getAttribute("nhanvien");
+    if (nhanvien == null) 
+    out.println("Bạn chưa đăng nhập!")
+    return;
+    }*/
+    String mavt = request.getParameter("mavt");
+    out.println(mavt);
+    String tenvt = request.getParameter("tenvt");
+    out.println(tenvt);
+    String dvt = request.getParameter("dvt");
+    out.println(dvt);
+    int soluongton=Integer.parseInt(request.getParameter("soluongton"));
+    out.println(soluongton);
+    boolean ketqua;
+  String thongbao;
+    ketqua =VatTu.capNhatVatTu(mavt, tenvt, dvt, soluongton);
     
-      out.write(' ');
+    if(ketqua==false){
+        thongbao="Cập nhật vật tư không thành công";
+    }
+    else{
+           thongbao="Cập nhật vật tư thành công";
+           
+        }
+    out.print(thongbao);
+    
+
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;
