@@ -60,6 +60,9 @@ public class CtrQuanLyVatTu extends HttpServlet {
             if(yc.equals("lap_phieu")){
                 response.sendRedirect(url+"lap_phieu.html");
             }             
+            if (yc.equals("kho")) {
+                response.sendRedirect(url+ "../jsp/xemKho.jsp");                
+            }  
             out.println("</body>");
             out.println("</html>");
         }
