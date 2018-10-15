@@ -19,7 +19,7 @@ public class Phieu {
     int so_phieu;
     String day;
     LocalDate date;
-    char loai;
+    String loai;
     String ho_ten_khach_hang;
     String manv;
     String makho;
@@ -27,14 +27,15 @@ public class Phieu {
     public Phieu() {
     }
 
-    public Phieu(int so_phieu, char loai, String ho_ten_khach_hang, String manv, String makho) {
-        this.so_phieu = so_phieu;
+    public Phieu(String loai, String ho_ten_khach_hang, String manv, String makho) {
         this.date = LocalDate.now();
         this.loai = loai;   //   nhap/xuat
         this.ho_ten_khach_hang = ho_ten_khach_hang;
         this.manv = manv;
         this.makho = makho;
     }
+    
+    
 
     public int getSo_phieu() {
         return so_phieu;
@@ -44,7 +45,7 @@ public class Phieu {
         return day;
     }
 
-    public char getLoai() {
+    public String getLoai() {
         return loai;
     }
 
@@ -68,7 +69,7 @@ public class Phieu {
         this.day = day;
     }
 
-    public void setLoai(char loai) {
+    public void setLoai(String loai) {
         this.loai = loai;
     }
 
@@ -98,7 +99,11 @@ public class Phieu {
         return kq;
     }
     public static void main(String[] arg) {
+<<<<<<< HEAD
         Phieu phieu = new Phieu(1, 'n', "mẫu", "nv1", "mk1");
+=======
+        Phieu phieu = new Phieu("nhap", "dmm Mẫu", "nv1", "mk1");
+>>>>>>> 60cbedb02ef3eac714cf3d17af023a8cf7ab4d7d
         boolean kq = phieu.addPhieu();
         System.out.println(kq);
     }

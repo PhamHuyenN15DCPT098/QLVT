@@ -22,23 +22,32 @@ and open the template in the editor.
                 }
             }
             function lapphieu(){
-                xmlhttp.open("get", "../jsp/lapphieu.jsp");
+                var a,b,c,d;
+                a = document.getElementsByName("hotenkh");
+                b = document.getElementsByName("loai");
+                c = document.getElementsByName("makho");
+                d = "hotenkh="+a+"&loai="+b+"&makho="+c;
+                xmlhttp.open("get", "../jsp/lapphieu.jsp?"+d,false);
                 xmlhttp.send();
+                var kq = xmlhttp.responseText.trim();
+                alert(kq);
             }
         </script>
     </head>
     <body onload="xemmakho();">
 
         <h3>Lập phiếu</h3>
+        <form>
         Họ tên khách hàng<br>
-        <input name="hotenkh"><br>
+        <input type="text" name="hotenkh"><br>
         Loại<br>
         <select name="loai">
-            <option value="n">Nhập</option>
-            <option value="x">Xuất</option>
+            <option value="Nhập">Nhập</option>
+            <option value="Xuất">Xuất</option>
         </select><br>
         Mã kho<br>
         <div id="select"></div>
-        <button action="lapphieu()"></button>
+        <input type="submit" value="Nhập phiếu" formaction="../jsp/lapphieu.jsp">
+        </form>
     </body>
 </html>

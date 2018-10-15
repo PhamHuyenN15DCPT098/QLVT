@@ -8,7 +8,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
     /*    NhanVien nhanvien = (NhanVien) session.getAttribute("nh
-    if (nhanvien == nul
+    if (nhanvien == null){
     out.println("Bạn chưa đăng nhập!");
     return;
     }*/
