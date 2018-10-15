@@ -59,19 +59,7 @@ public class CtrQuanLyVatTu extends HttpServlet {
             }  
             if(yc.equals("lap_phieu")){
                 response.sendRedirect(url+"lap_phieu.html");
-            }             
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-            if (yc.equals("kho")) {
-                response.sendRedirect(url+ "../jsp/xemKho.jsp");                
-            }  
-=======
->>>>>>> d2e5be9248c5802d39f052a0c8e7cc33502f72f8
->>>>>>> fd535fa5dcfe940029f1a6ccd338196f558ff593
->>>>>>> 198014a1ed3649eb361f915a1f572a94c3a92492
-            out.println("</body>");
-            out.println("</html>");
+            }      
         }
     }
 
