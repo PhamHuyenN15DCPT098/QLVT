@@ -13,5 +13,9 @@
     int soluongton=Integer.parseInt(request.getParameter("soluongton"));
     boolean ketqua;
     ketqua =VatTu.capNhatVatTu(mavt, tenvt, dvt, soluongton);
+<<<<<<< HEAD
+    response.sendRedirect("../jsp/xemDanhSachVatTu.jsp");
+=======
     response.sendRedirect("xemDanhSachVatTu.jsp");   
+>>>>>>> d2e5be9248c5802d39f052a0c8e7cc33502f72f8
 %>

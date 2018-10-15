@@ -3,6 +3,64 @@
         <title>Quản lý vật tư</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
+
+        <style>
+            .menu *{
+                margin: 0;
+                padding: 0;
+            }
+            .clear{
+                clear: both;
+            }
+            .menu{
+                background: #0B6121;
+            }
+            a{
+                text-decoration: none;
+                color: #FBFBEF;
+                font-size: 20px;
+            }
+            li{
+                list-style: none;
+            }
+            .menu>ul>li{
+                padding: 10px 92px;
+                list-style: none;
+                float:left ;
+                position: relative;
+            }
+            .menu>ul>li>.menu_con{
+                display: none;
+                position: absolute;
+                background: #0B6121;
+                top:43px;
+                left:0px;
+                width: 234px;
+            }
+            .menu ul li:hover .menu_con{
+                display: block;
+            }
+            .menu ul li:hover{
+                background: #088A85;
+            }
+            .menu_con>li{
+                padding: 5px 10px;
+            }
+            .menu_con_1{
+                display: none;
+                position: absolute;
+                background: #0B6121;
+                left: 234px;
+                top: 0px;
+                width: 100px;
+            }
+            .menu_con_1>li{
+                padding: 5px 10px;
+            }
+            .menu ul li .menu_con li:hover .menu_con_1{
+                display: block;
+=======
         <style>
             #menu *{
                 margin: 0;
@@ -41,10 +99,48 @@
                 width:80%;
                 height:1000px;
                 border: none;
+>>>>>>> d2e5be9248c5802d39f052a0c8e7cc33502f72f8
             }
         </style>
     </head>
+
+
+
     <body>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+        <!--        <a href="/QLVATTU/CtrQuanLyVatTu?yc=addvattu" target="content">Thêm Vật tư</a>
+                <a href="/QLVATTU/CtrQuanLyVatTu?yc=xemvattu" target="content">Xem DS Vật tư</a>
+                <a href="/QLVATTU/CtrQuanLyVatTu?yc=phieu" target="content">Phiếu</a>
+                <a href="QLVATTU/CtrQuanLyVatTu?yc=kho" target="content">Kho</a><br>
+                <iframe style="height:500px; width:100%" name="content"></iframe>-->
+
+
+        <div class="menu">
+            <ul>
+                <li><a href="#">Vật tư</a>
+                    <ul class="menu_con">
+                        <li><a href="#">Tìm vật tư</a>
+                            <ul class="menu_con_1">
+                                <li><a href="/QLVATTU/CtrQuanLyVatTu?yc=timtheoma">Theo mã</a></li>
+                                <li><a href="/QLVATTU/CtrQuanLyVatTu?yc=timtheoten">Theo tên</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/QLVATTU/CtrQuanLyVatTu?yc=xemvattu" target="content">Xem danh sách vật tư</a></li>
+                        <li><a href="/QLVATTU/CtrQuanLyVatTu?yc=addvattu" target="content">Thêm vật tư</a></li>
+                        <li><a href="/QLVATTU/CtrQuanLyVatTu?yc=timhangcon" target="content">Danh sách vật tư còn hàng</a>
+                    </ul>
+                </li>
+                <li><a href="/QLVATTU/CtrQuanLyVatTu?yc=phieu" target="content">Lập phiếu</a>
+                </li>
+                <li><a href="/QLVATTU/CtrQuanLyVatTu?yc=dskho" target="content">Danh sách kho</a>
+            </ul>
+            <div class="clear"> </div>
+        </div>
+=======
+<<<<<<< HEAD
+>>>>>>> fd535fa5dcfe940029f1a6ccd338196f558ff593
         <div id="menu">
             <ul>
                 <li><a href="#">Tìm Vật Tư</a>
@@ -69,5 +165,16 @@
             </ul>
             <iframe id="content" name="content"></iframe>  
         </div>                 
+<<<<<<< HEAD
+=======
+=======
+        <a href="/QLVATTU/CtrQuanLyVatTu?yc=addvattu" target="content">Thêm Vật tư</a>
+        <a href="/QLVATTU/CtrQuanLyVatTu?yc=xemvattu" target="content">Xem DS Vật tư</a>
+        <a href="/QLVATTU/CtrQuanLyVatTu?yc=lap_phieu" target="content">Lập phiếu</a>
+        <a href="/QLVATTU/CtrQuanLyVatTu?yc=kho" target="content">Kho</a><br>
+>>>>>>> d2e5be9248c5802d39f052a0c8e7cc33502f72f8
+        <iframe style="height:500px; width:100%" name="content"></iframe>
+>>>>>>> 27569e8739beffaf21b718b25cca0596eb2871c2
+>>>>>>> fd535fa5dcfe940029f1a6ccd338196f558ff593
     </body>
 </html>

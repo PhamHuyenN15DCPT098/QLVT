@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Xem Danh Sach Vat Tu</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            var xmlhttp = new XMLHttpRequest();
+            function xemVatTu() {
+                xmlhttp.open("get", "../jsp/xemDanhSachVatTu.jsp", false);
+                xmlhttp.send();
+                var table = xmlhttp.responseText.trim();
+                if (table == "empty") {
+                    document.write("Không có vật tư");
+                } else {
+                    document.getElementById("vattu").innerHTML = table;
+                }
+            }
+        </script>
+    </head>
+    <body onload="xemVatTu();">
+        <h3>Danh Sách Vật Tư</h3>
+<!--         <form action="../jsp/capnhatVatTu.jsp" id="vattu"></form>
+        <button onclick="capnhatVatTu();">CẬP NHẬT VẬT TƯ</button>-->
+<div id="vattu"></div>
+    </body>
+</html>
