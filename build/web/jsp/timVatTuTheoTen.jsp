@@ -6,13 +6,14 @@
 <%
 
     String tenvt = request.getParameter("tenvt");
+    String table="";
     List<VatTu> list = VatTu.timVatTuTheoTenVatTu(tenvt);
-    if (list == null) {
-        String table="empty";
+    if (list.isEmpty()) {
+        table="empty";
         out.print(table);
         return;
     } else {
-        String table = "<table border=1>";
+        table = "<table border=1>";
         table += "<tr>"
                 + "<th>Mã vật tư</th>"
                 + "<th>Tên vật tư</th>"
@@ -22,9 +23,9 @@
             for (VatTu vt : list) {
                 table += "<tr><form>"
                         + "<td><textarea name='" + "mavt" + "' readonly>" + vt.getMavt() + "</textarea></td>"
-                        + "<td><textarea name='" + "tenvt" + "'>" + vt.getTenvt() + "</textarea></td>"
-                        + "<td><textarea name='" + "dvt" + "'>" + vt.getDvt() + "</textarea></td>"
-                        + "<td><textarea name='" + "soluongton" + "'>" + vt.getSoluongton() + "</textarea></td>"
+                        + "<td><textarea name='" + "tenvt" + "'readonly>" + vt.getTenvt() + "</textarea></td>"
+                        + "<td><textarea name='" + "dvt" + "'readonly>" + vt.getDvt() + "</textarea></td>"
+                        + "<td><textarea name='" + "soluongton" + "'readonly>" + vt.getSoluongton() + "</textarea></td>"
                         + "</form></tr>";
             }
             table += "</table>";

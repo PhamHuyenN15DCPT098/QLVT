@@ -3,7 +3,7 @@
 <%
     NhanVien nhanvien = (NhanVien) session.getAttribute("nhanvien");
     if (nhanvien == null) {
-    out.println("B?n ch?a ??ng nh?p!");
+    out.println("B?n ch?a d?ng nh?p");
     return;
     }
     String mavt = request.getParameter("mavt");

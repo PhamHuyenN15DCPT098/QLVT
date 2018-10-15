@@ -11,11 +11,11 @@
     String tenvt = request.getParameter("tenvt");  
     String dvt = request.getParameter("dvt");  
     int soluongton=Integer.parseInt(request.getParameter("soluongton"));
+    if (soluongton<0){
+        response.sendRedirect("xemDanhSachVatTu.jsp");
+        return;
+    }
     boolean ketqua;
     ketqua =VatTu.capNhatVatTu(mavt, tenvt, dvt, soluongton);
-<<<<<<< HEAD
     response.sendRedirect("../jsp/xemDanhSachVatTu.jsp");
-=======
-    response.sendRedirect("xemDanhSachVatTu.jsp");   
->>>>>>> d2e5be9248c5802d39f052a0c8e7cc33502f72f8
 %>

@@ -128,16 +128,16 @@ public class VatTu {
     public static List<VatTu> timVatTuTheoTenVatTu(String tenvt) {
         CSDL.moKetNoi("vattu", "root", "root");
         String sql = "SELECT * FROM vattu WHERE tenvt like '%" + tenvt + "%'";
-        List<VatTu> listvattu = null;
+        List<VatTu> listvattu = new ArrayList();
         try {
             ResultSet rs = CSDL.stm.executeQuery(sql);
-            listvattu = new ArrayList();
             while (rs.next()) {
                 VatTu vattu = new VatTu(rs.getString("mavt"), rs.getString("tenvt"),
                         rs.getString("dvt"), rs.getInt("soluongton"));
                 listvattu.add(vattu);
             }
         } catch (SQLException ex) {
+            listvattu=null;
             System.out.println(ex.getMessage());
         }
         CSDL.dongKetNoi();

@@ -22,15 +22,15 @@
         List<VatTu> list = new ArrayList();
         list.add(vattu);
         if (list == null) {
-            out.print("Khong co vat tu nao");
+            out.print("Không tìm thấy vật tư");
             return;
         } else {
             for (VatTu vt : list) {
                 table += "<tr><form>"
                         + "<td><textarea name='" + "mavt" + "' readonly>" + vt.getMavt() + "</textarea></td>"
-                        + "<td><textarea name='" + "tenvt" + "'>" + vt.getTenvt() + "</textarea></td>"
-                        + "<td><textarea name='" + "dvt" + "'>" + vt.getDvt() + "</textarea></td>"
-                        + "<td><textarea name='" + "soluongton" + "'>" + vt.getSoluongton() + "</textarea></td>"
+                        + "<td><textarea name='" + "tenvt" + "'readonly>" + vt.getTenvt() + "</textarea></td>"
+                        + "<td><textarea name='" + "dvt" + "'readonly>" + vt.getDvt() + "</textarea></td>"
+                        + "<td><textarea name='" + "soluongton" + "'readonly>" + vt.getSoluongton() + "</textarea></td>"
                         + "</form></tr>";
             }
             table += "</table>";

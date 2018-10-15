@@ -26,8 +26,8 @@
         for (Kho kho : list) {
             table += "<tr><form>"
                     + "<td><textarea name='" + "makho" + "' readonly>" + kho.getMakho() + "</textarea></td>"
-                    + "<td><textarea name='" + "tenkho" + "'>" + kho.getTenkho() + "</textarea></td>"
-                    + "<td><textarea name='" + "diachi" + "'>" + kho.getDiachi() + "</textarea></td>"               
+                    + "<td><textarea name='" + "tenkho" + "'readonly>" + kho.getTenkho() + "</textarea></td>"
+                    + "<td><textarea name='" + "diachi" + "'readonly>" + kho.getDiachi() + "</textarea></td>"               
                     + "</form></tr>";
         }
         table += "</table>";

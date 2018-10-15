@@ -19,7 +19,7 @@ and open the template in the editor.
                     }
                 }
                 if (input[3].value < 0) {
-                    alert("Số lượng phải <= 0");
+                    alert("Số lượng phải >= 0");
                     return;
                 }
                 var thamso = "mavt=" + input[0].value + "&tenvt=" + input[1].value
@@ -29,9 +29,9 @@ and open the template in the editor.
                 xmlhttp.send();
                 var thongbao = xmlhttp.responseText.trim();
                 if (thongbao == "true") {
-                    thongbao = "Nhập Thành Công";
+                    thongbao = "Thêm Thành Công";
                 } else {
-                    thongbao = "Nhập không thành công.";
+                    thongbao = "Thêm vật tư không thành công.";
                 }                
                 alert(thongbao);
             }

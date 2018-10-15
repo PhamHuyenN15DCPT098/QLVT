@@ -23,7 +23,7 @@
     List<VatTu> list= new ArrayList();
     list=VatTu.layDanhSachVatTu();
     if (list==null){
-        out.print("Khong co vat tu nao");
+        out.print("Không có vật tư nào");
         return;
     }
     else
@@ -34,16 +34,11 @@
                 + "<td><textarea name='"+"tenvt"+"'>"+vt.getTenvt()+"</textarea></td>"
                 + "<td><textarea name='"+"dvt"+"'>"+vt.getDvt()+"</textarea></td>"
                 + "<td><textarea name='"+"soluongton"+"'>"+vt.getSoluongton()+"</textarea></td>"
-<<<<<<< HEAD
                 + "<td><input type='"+"submit"+"' formaction='"+"../jsp/capnhatVatTu.jsp"+"' value='"+"Cập nhật"+"'></td>"
-                + "<td>Xóa"+"</td>"
-=======
-                + "<td><input type='"+"submit"+"' formaction='"+"capnhatVatTu.jsp"+"' value='"+"Cập nhật"+"' ></td>"               
->>>>>>> d2e5be9248c5802d39f052a0c8e7cc33502f72f8
                 + "</form></tr>";
     }
-    table+="</table>";
-    out.print(table);
+        table+="</table>";
+        out.print(table);
     }
     
  

@@ -15,11 +15,14 @@ and open the template in the editor.
                 xmlhttp.open("get", "../jsp/xemDanhSachVatTu.jsp", false);
                 xmlhttp.send();
                 var table = xmlhttp.responseText.trim();
+                var thongbao=xmlhttp.responseText.trim();
+                
                 if (table == "empty") {
                     document.write("Không có vật tư");
                 } else {
                     document.getElementById("vattu").innerHTML = table;
                 }
+                
             }
         </script>
     </head>
