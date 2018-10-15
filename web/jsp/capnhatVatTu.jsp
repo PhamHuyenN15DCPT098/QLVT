@@ -14,11 +14,5 @@
     boolean ketqua= false;
     String thongbao="";
     ketqua =VatTu.capNhatVatTu(mavt, tenvt, dvt, soluongton);
-    if(ketqua==false){
-        thongbao="Cập nhật vật tư không thành công";
-    }
-    else{
-           thongbao="Cập nhật vật tư thành công";
-        }
-    out.print(thongbao);
+    response.sendRedirect("../jsp/xemDanhSachVatTu.jsp");
 %>

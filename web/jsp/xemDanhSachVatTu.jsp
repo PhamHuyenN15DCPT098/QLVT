@@ -31,12 +31,12 @@
     {
         for (VatTu vt: list){
         table +="<tr><form>"
-                + "<td><textarea name='"+"mavt"+"' readonly>"+vt.getMavt()+"</textarea></td>"
+                + "<td><input name='"+"mavt"+"' value='"+vt.getMavt()+"' readonly>"+"</td>"
                 + "<td><textarea name='"+"tenvt"+"'>"+vt.getTenvt()+"</textarea></td>"
                 + "<td><textarea name='"+"dvt"+"'>"+vt.getDvt()+"</textarea></td>"
                 + "<td><textarea name='"+"soluongton"+"'>"+vt.getSoluongton()+"</textarea></td>"
-                + "<td><input type='"+"submit"+"' formaction='"+"capnhatVatTu.jsp"+"' value='"+"Cập nhật"+"' ></td>"
-                + "<td>"+"Xóa"+"</td>"
+                + "<td><input type='"+"submit"+"' formaction='"+"../jsp/capnhatVatTu.jsp"+"' value='"+"Cập nhật"+"'></td>"
+                + "<td>Xóa"+"</td>"
                 + "</form></tr>";
     }
     table+="</table>";
